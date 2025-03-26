@@ -7,8 +7,7 @@ interface TypewriterProps {
 export function Typewriter({ phrases }: TypewriterProps) {
   const displayText = useTypewriter(phrases, {
     typingSpeed: 100,
-    deletingSpeed: 50,
-    pauseTime: 1500,
+    pauseTime: 3000,
   });
 
   return (

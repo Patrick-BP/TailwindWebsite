@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { Profile } from "@shared/schema";
+import { Profile, TimelineEntry } from "@shared/schema";
 import { TimelineItem } from "@/components/timeline-item";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 
@@ -8,7 +8,7 @@ export function AboutSection() {
     queryKey: ["/api/profile"],
   });
 
-  const { data: timelineEntries } = useQuery({
+  const { data: timelineEntries = [] } = useQuery<TimelineEntry[]>({
     queryKey: ["/api/timeline-entries"],
   });
 
