@@ -11,10 +11,10 @@ export function HeroSection() {
 
   // Typewriter phrases
   const phrases = [
-    "Building exceptional digital experiences",
-    "Creating responsive web applications",
-    "Developing innovative solutions",
-    "Turning ideas into reality"
+    "building exceptional digital experiences",
+    "creating responsive web applications",
+    "developing innovative solutions",
+    "turning ideas into reality"
   ];
 
   // Use placeholder data if profile is still loading
@@ -34,9 +34,9 @@ export function HeroSection() {
             </span>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
               Hi, I'm <span className="text-primary dark:text-blue-400">{name}</span>
-              <span className="block mt-2">
-                <Typewriter phrases={phrases} />
-              </span>
+              <div className="block mt-2">
+                I'm <Typewriter phrases={phrases} />
+              </div>
             </h1>
             <p className="text-lg text-gray-600 dark:text-gray-300 mb-8 max-w-2xl">
               {bio}
