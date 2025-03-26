@@ -97,7 +97,7 @@ export default function AuthPage() {
             <TabsTrigger value="login">Login</TabsTrigger>
             <TabsTrigger value="register">Register</TabsTrigger>
           </TabsList>
-          
+
           <Card>
             <TabsContent value="login">
               <CardHeader>
@@ -119,14 +119,14 @@ export default function AuthPage() {
                             <Input 
                               {...field} 
                               placeholder="Your username" 
-                              disabled={loginMutation.isPending}
+                              disabled={loginMutation?.isPending}
                             />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
                       )}
                     />
-                    
+
                     <FormField
                       control={loginForm.control}
                       name="password"
@@ -138,20 +138,20 @@ export default function AuthPage() {
                               {...field} 
                               type="password" 
                               placeholder="Your password" 
-                              disabled={loginMutation.isPending}
+                              disabled={loginMutation?.isPending}
                             />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
                       )}
                     />
-                    
+
                     <Button 
                       type="submit" 
                       className="w-full"
-                      disabled={loginMutation.isPending}
+                      disabled={loginMutation?.isPending}
                     >
-                      {loginMutation.isPending ? (
+                      {loginMutation?.isPending ? (
                         <>
                           <Loader2 className="mr-2 h-4 w-4 animate-spin" />
                           Logging in...
@@ -162,7 +162,7 @@ export default function AuthPage() {
                     </Button>
                   </form>
                 </Form>
-                
+
                 <div className="mt-4 text-center text-sm">
                   <span className="text-gray-600 dark:text-gray-400">
                     Don't have an account?{" "}
@@ -177,7 +177,7 @@ export default function AuthPage() {
                 </div>
               </CardContent>
             </TabsContent>
-            
+
             <TabsContent value="register">
               <CardHeader>
                 <CardTitle>Register</CardTitle>
@@ -205,7 +205,7 @@ export default function AuthPage() {
                         </FormItem>
                       )}
                     />
-                    
+
                     <FormField
                       control={registerForm.control}
                       name="email"
@@ -224,7 +224,7 @@ export default function AuthPage() {
                         </FormItem>
                       )}
                     />
-                    
+
                     <FormField
                       control={registerForm.control}
                       name="username"
@@ -242,7 +242,7 @@ export default function AuthPage() {
                         </FormItem>
                       )}
                     />
-                    
+
                     <FormField
                       control={registerForm.control}
                       name="password"
@@ -261,7 +261,7 @@ export default function AuthPage() {
                         </FormItem>
                       )}
                     />
-                    
+
                     <Button 
                       type="submit" 
                       className="w-full"
@@ -278,7 +278,7 @@ export default function AuthPage() {
                     </Button>
                   </form>
                 </Form>
-                
+
                 <div className="mt-4 text-center text-sm">
                   <span className="text-gray-600 dark:text-gray-400">
                     Already have an account?{" "}
