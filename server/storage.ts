@@ -8,6 +8,8 @@ import {
 } from "@shared/schema";
 import session from "express-session";
 import createMemoryStore from "memorystore";
+import { log } from "./vite";
+import { MongoStorage } from "./db/mongo-storage";
 
 const MemoryStore = createMemoryStore(session);
 
@@ -50,7 +52,7 @@ export interface IStorage {
   updateProfile(profileData: InsertProfile): Promise<Profile>;
   
   // Session store
-  sessionStore: session.SessionStore;
+  sessionStore: session.Store;
 }
 
 export class MemStorage implements IStorage {
@@ -61,7 +63,7 @@ export class MemStorage implements IStorage {
   private contactMessagesMap: Map<number, ContactMessage>;
   private profileData: Profile | undefined;
   
-  sessionStore: session.SessionStore;
+  sessionStore: session.Store;
   
   private userCurrentId: number = 1;
   private projectCurrentId: number = 1;
@@ -725,4 +727,5 @@ Web accessibility is not just a legal requirement in many jurisdictions—it's a
   }
 }
 
+// Use in-memory storage for now until MongoDB credentials are fixed
 export const storage = new MemStorage();
