@@ -259,6 +259,71 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
+  // Admin User Management
+  app.get("/api/users", async (req, res) => {
+    // Check if user is authenticated and is admin
+    if (!req.isAuthenticated() || req.user.role !== "admin") {
+      return res.status(401).json({ message: "Unauthorized" });
+    }
+
+    try {
+      const users = await storage.getAllUsers();
+      res.json(users);
+    } catch (error) {
+      res.status(500).json({ message: "Failed to fetch users" });
+    }
+  });
+
+  app.get("/api/users/:id", async (req, res) => {
+    // Check if user is authenticated and is admin
+    if (!req.isAuthenticated() || req.user.role !== "admin") {
+      return res.status(401).json({ message: "Unauthorized" });
+    }
+
+    try {
+      const user = await storage.getUser(parseInt(req.params.id));
+      if (!user) {
+        return res.status(404).json({ message: "User not found" });
+      }
+      res.json(user);
+    } catch (error) {
+      res.status(500).json({ message: "Failed to fetch user" });
+    }
+  });
+
+  app.put("/api/users/:id/role", async (req, res) => {
+    // Check if user is authenticated and is admin
+    if (!req.isAuthenticated() || req.user.role !== "admin") {
+      return res.status(401).json({ message: "Unauthorized" });
+    }
+
+    try {
+      const { role } = req.body;
+      if (!role || !["admin", "user"].includes(role)) {
+        return res.status(400).json({ message: "Invalid role" });
+      }
+
+      const user = await storage.updateUserRole(parseInt(req.params.id), role);
+      res.json(user);
+    } catch (error) {
+      res.status(500).json({ message: "Failed to update user role" });
+    }
+  });
+
+  app.delete("/api/users/:id", async (req, res) => {
+    // Check if user is authenticated and is admin
+    if (!req.isAuthenticated() || req.user.role !== "admin") {
+      return res.status(401).json({ message: "Unauthorized" });
+    }
+
+    try {
+      await storage.deleteUser(parseInt(req.params.id));
+      res.status(204).end();
+    } catch (error) {
+      res.status(500).json({ message: "Failed to delete user" });
+    }
+  });
+
   // Profile
   app.get("/api/profile", async (req, res) => {
     try {
