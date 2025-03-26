@@ -34,8 +34,8 @@ export function HeroSection() {
             </span>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
               Hi, I'm <span className="text-primary dark:text-blue-400">{name}</span>
-              <div className="block mt-2">
-                I'm <Typewriter phrases={phrases} />
+              <div className="block mt-2 flex">
+                <span className="mr-2">I'm</span> <Typewriter phrases={phrases} />
               </div>
             </h1>
             <p className="text-lg text-gray-600 dark:text-gray-300 mb-8 max-w-2xl">

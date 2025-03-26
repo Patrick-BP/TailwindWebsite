@@ -126,7 +126,7 @@ export class MemStorage implements IStorage {
       description: "Graduated with honors. Specialized in Software Engineering and Machine Learning. Participated in multiple hackathons and coding competitions.",
       dateRange: "2016 - 2020",
       skills: ["Algorithms", "Data Structures", "Software Design", "Machine Learning", "AI"],
-      order: 4
+      order: 7
     };
     this.timelineEntriesMap.set(education.id, education);
     
@@ -152,12 +152,39 @@ export class MemStorage implements IStorage {
       },
       {
         id: this.timelineEntryCurrentId++,
+        title: "Front-End Developer",
+        company: "Digital Creations Ltd.",
+        description: "Developed responsive and interactive user interfaces for web applications. Collaborated with designers to implement pixel-perfect designs. Optimized performance for mobile devices.",
+        dateRange: "2019 - 2020",
+        skills: ["JavaScript", "React", "CSS3", "SASS", "Responsive Design", "Webpack"],
+        order: 3
+      },
+      {
+        id: this.timelineEntryCurrentId++,
+        title: "UI/UX Developer",
+        company: "InnovateTech",
+        description: "Created user interfaces for mobile and web applications. Worked closely with product managers to implement user-friendly designs. Conducted usability testing and made improvements based on feedback.",
+        dateRange: "2018 - 2019",
+        skills: ["HTML5", "CSS3", "JavaScript", "Sketch", "Figma", "User Testing"],
+        order: 4
+      },
+      {
+        id: this.timelineEntryCurrentId++,
+        title: "Web Developer",
+        company: "CreativeWorks Agency",
+        description: "Developed websites for various clients including e-commerce, corporate, and portfolio sites. Implemented CMS solutions and custom functionalities. Ensured cross-browser compatibility and accessibility.",
+        dateRange: "2017 - 2018",
+        skills: ["HTML", "CSS", "JavaScript", "WordPress", "PHP", "jQuery"],
+        order: 5
+      },
+      {
+        id: this.timelineEntryCurrentId++,
         title: "Software Engineering Intern",
         company: "GlobalTech",
         description: "Assisted in developing features for the company's main product. Fixed bugs and optimized code. Participated in code reviews and agile development processes.",
-        dateRange: "Summer 2019",
+        dateRange: "Summer 2017",
         skills: ["JavaScript", "React", "Git", "Agile Methodologies", "Problem Solving"],
-        order: 3
+        order: 6
       }
     ];
     
