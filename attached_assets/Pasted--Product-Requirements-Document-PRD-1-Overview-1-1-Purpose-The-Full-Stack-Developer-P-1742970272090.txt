@@ -1,0 +1,114 @@
+# Product Requirements Document (PRD)
+
+## 1. Overview
+### 1.1 Purpose
+The Full-Stack Developer Portfolio aims to showcase a developer's skills, projects, and experience in an interactive and engaging manner. The design will be modern, visually appealing, and incorporate smooth animations to enhance user experience.
+
+### 1.2 Target Audience
+- Full-Stack Developers
+- Recruiters & Hiring Managers
+- Clients seeking development services
+- Tech enthusiasts
+
+## 2. Features & Requirements
+
+### 2.1 Landing Page
+**Description:**
+- A visually stunning homepage with an introduction, professional summary, and call-to-action.
+- Clean UI with smooth animations and transitions.
+- Navigation bar linking to all major sections.
+
+**Requirements:**
+- Use Tailwind CSS for styling.
+- Responsive design.
+- Optional dark mode toggle.
+- Hero section with dynamic text animations.
+
+### 2.2 About Section
+**Description:**
+- Detailed profile with skills, experience, and personal bio.
+- **Creative and unique timeline** of work experience and education.
+
+**Requirements:**
+- **Interactive, scroll-based timeline** with animations and hover effects.
+- **Alternating card layouts** with dynamic motion effects.
+- **Parallax effects or 3D scrolling** to make the timeline engaging.
+- Icons and logos for companies and educational institutions.
+- Well-structured layout for easy readability.
+
+### 2.3 Projects Showcase
+**Description:**
+- Grid-based project showcase with descriptions, tech stacks, and links.
+- Option to filter projects by category.
+- Hover effects for project previews.
+- Individual project pages displaying detailed descriptions, screenshots, and links.
+
+**Requirements:**
+- Integration with GitHub API to fetch repositories dynamically.
+- Image thumbnails for each project.
+- Animated transitions when filtering projects.
+- Dedicated project pages with full project details, including tech stack, development process, and high-resolution screenshots.
+- **All images/screenshots should be uploaded and stored in a folder on the backend.**
+
+### 2.4 Blog/Technical Articles
+**Description:**
+- Blog section to share technical knowledge.
+- Markdown-supported content with code snippets.
+- Engaging UI with smooth scrolling.
+
+**Requirements:**
+- SEO-optimized articles.
+- Styled content with a modern typography system.
+
+### 2.5 Resume & Contact Section
+**Description:**
+- Downloadable PDF resume.
+- Contact form with email forwarding.
+- Links to social media profiles.
+
+**Requirements:**
+- Well-structured and easy-to-read resume layout.
+- Validation for contact form inputs.
+- Smooth animations for form submission feedback.
+
+### 2.6 Admin Dashboard
+**Description:**
+- A private dashboard for managing content (projects, blog posts, contact messages).
+
+**Requirements:**
+- Authentication for secure access.
+- CRUD functionality for portfolio updates.
+- Intuitive UI for content management.
+
+## 3. Technical Requirements
+
+### 3.1 Frontend (React)
+- Developed using **React** with a component-based architecture.
+- Responsive UI using **Tailwind CSS**.
+- Smooth animations using CSS and JavaScript.
+- **API calls should be handled using Axios**.
+
+### 3.2 Backend (Node.js)
+- Developed using **Node.js** with Express.
+- Follows a structured approach with **routes, models, and controllers**.
+- **All images/screenshots should be uploaded and stored in a folder on the backend.**
+- Secure authentication for dashboard access.
+- API layer to handle content updates and project data management.
+
+## 4. Performance & Scalability
+- Optimized load times via lazy loading and caching.
+- CDN for static assets.
+- Scalable backend to handle growing traffic.
+
+## 5. Accessibility & Compliance
+- WCAG-compliant color contrast and keyboard navigation.
+- SEO best practices for visibility.
+
+## 6. Future Enhancements
+- Multilingual support.
+- Interactive portfolio navigation.
+- Real-time collaboration for project showcase.
+
+---
+This PRD ensures a robust, visually appealing, and animation-rich portfolio while keeping the design modern and efficient with Tailwind CSS, React for the frontend, and Node.js for the backend.
+
