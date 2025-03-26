@@ -198,7 +198,7 @@ export default function AuthPage() {
                             <Input 
                               {...field} 
                               placeholder="John Doe" 
-                              disabled={registerMutation.isPending}
+                              disabled={registerMutation?.isPending}
                             />
                           </FormControl>
                           <FormMessage />
@@ -217,7 +217,7 @@ export default function AuthPage() {
                               {...field} 
                               type="email" 
                               placeholder="john.doe@example.com" 
-                              disabled={registerMutation.isPending}
+                              disabled={registerMutation?.isPending}
                             />
                           </FormControl>
                           <FormMessage />
@@ -235,7 +235,7 @@ export default function AuthPage() {
                             <Input 
                               {...field} 
                               placeholder="johndoe" 
-                              disabled={registerMutation.isPending}
+                              disabled={registerMutation?.isPending}
                             />
                           </FormControl>
                           <FormMessage />
@@ -254,7 +254,7 @@ export default function AuthPage() {
                               {...field} 
                               type="password" 
                               placeholder="Create a strong password" 
-                              disabled={registerMutation.isPending}
+                              disabled={registerMutation?.isPending}
                             />
                           </FormControl>
                           <FormMessage />
@@ -265,9 +265,9 @@ export default function AuthPage() {
                     <Button 
                       type="submit" 
                       className="w-full"
-                      disabled={registerMutation.isPending}
+                      disabled={registerMutation?.isPending}
                     >
-                      {registerMutation.isPending ? (
+                      {registerMutation?.isPending ? (
                         <>
                           <Loader2 className="mr-2 h-4 w-4 animate-spin" />
                           Creating account...
