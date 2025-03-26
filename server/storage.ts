@@ -727,5 +727,8 @@ Web accessibility is not just a legal requirement in many jurisdictions—it's a
   }
 }
 
-// Use in-memory storage for now until MongoDB credentials are fixed
-export const storage = new MemStorage();
+// Import MongoDB storage implementation
+import { MongoStorage } from "./db/mongo-storage";
+
+// Use MongoDB for storage
+export const storage = new MongoStorage();
