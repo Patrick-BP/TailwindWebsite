@@ -74,24 +74,26 @@ export function AboutSection() {
         <div className="mt-20" ref={observerRef}>
           <h3 className="text-2xl font-bold text-center mb-16">My Journey</h3>
           
-          <div className="relative">
+          <div className="relative min-h-[1500px] md:min-h-[1800px]">
             {/* Timeline Center Line */}
             <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gray-300 dark:bg-gray-700 md:block hidden"></div>
             <div className="absolute left-8 md:left-auto top-0 h-full w-1 bg-gray-300 dark:bg-gray-700 md:hidden"></div>
             
             {/* Timeline Items */}
             {timelineEntries ? (
-              timelineEntries.map((entry, index) => (
-                <TimelineItem
-                  key={entry.id}
-                  title={entry.title}
-                  company={entry.company}
-                  dateRange={entry.dateRange}
-                  description={entry.description}
-                  skills={entry.skills}
-                  isEven={index % 2 === 1}
-                />
-              ))
+              [...timelineEntries]
+                .sort((a, b) => a.order - b.order)
+                .map((entry, index) => (
+                  <TimelineItem
+                    key={entry.id}
+                    title={entry.title}
+                    company={entry.company}
+                    dateRange={entry.dateRange}
+                    description={entry.description}
+                    skills={entry.skills}
+                    isEven={index % 2 === 1}
+                  />
+                ))
             ) : (
               // Placeholder timeline items if data is not yet loaded
               Array(4).fill(null).map((_, index) => (

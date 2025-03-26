@@ -2,7 +2,6 @@ import { useState, useEffect, useCallback } from "react";
 
 type TypewriterOptions = {
   typingSpeed: number;
-  deletingSpeed: number;
   pauseTime: number;
 };
 
@@ -10,48 +9,42 @@ export const useTypewriter = (
   phrases: string[],
   options: TypewriterOptions = {
     typingSpeed: 100,
-    deletingSpeed: 50,
-    pauseTime: 1500,
+    pauseTime: 3000,
   }
 ) => {
   const [displayedText, setDisplayedText] = useState("");
+  const [completedPhrase, setCompletedPhrase] = useState(false);
   const [currentPhraseIndex, setCurrentPhraseIndex] = useState(0);
-  const [isDeleting, setIsDeleting] = useState(false);
 
   const typeEffect = useCallback(() => {
-    const { typingSpeed, deletingSpeed, pauseTime } = options;
+    const { typingSpeed, pauseTime } = options;
     const currentPhrase = phrases[currentPhraseIndex];
     
-    // Calculate the next state
-    if (isDeleting) {
-      // Remove a character
-      setDisplayedText(current => current.substring(0, current.length - 1));
+    // If we haven't completed the phrase yet, keep typing
+    if (!completedPhrase) {
+      if (displayedText.length < currentPhrase.length) {
+        // Still typing the current phrase
+        setDisplayedText(current => currentPhrase.substring(0, current.length + 1));
+        
+        // Schedule next character
+        setTimeout(typeEffect, typingSpeed);
+      } else {
+        // We've completed typing the phrase
+        setCompletedPhrase(true);
+        
+        // Wait for the pause time, then move to the next phrase
+        setTimeout(typeEffect, pauseTime);
+      }
     } else {
-      // Add a character
-      setDisplayedText(current => currentPhrase.substring(0, current.length + 1));
-    }
-    
-    // Determine the next action based on current state
-    let nextTimeout;
-    
-    if (!isDeleting && displayedText === currentPhrase) {
-      // If we've finished typing the current phrase, start deleting after a pause
-      nextTimeout = pauseTime;
-      setIsDeleting(true);
-    } else if (isDeleting && displayedText === "") {
-      // If we've finished deleting, move to the next phrase
-      setIsDeleting(false);
+      // Move to the next phrase
       setCurrentPhraseIndex((current) => (current + 1) % phrases.length);
-      nextTimeout = 500; // Pause before starting the next phrase
-    } else {
-      // Otherwise, continue typing or deleting at normal speed
-      nextTimeout = isDeleting ? deletingSpeed : typingSpeed;
+      setDisplayedText("");
+      setCompletedPhrase(false);
+      
+      // Start typing the next phrase
+      setTimeout(typeEffect, typingSpeed);
     }
-    
-    // Schedule the next update
-    const timeoutId = setTimeout(typeEffect, nextTimeout);
-    return () => clearTimeout(timeoutId);
-  }, [displayedText, currentPhraseIndex, isDeleting, phrases, options]);
+  }, [displayedText, currentPhraseIndex, completedPhrase, phrases, options]);
   
   useEffect(() => {
     const timeoutId = setTimeout(typeEffect, 1000); // Initial delay

@@ -12,7 +12,7 @@ interface TimelineItemProps {
 export function TimelineItem({ title, company, dateRange, description, skills, isEven }: TimelineItemProps) {
   return (
     <motion.div 
-      className="timeline-item relative mb-20 md:mb-24"
+      className="timeline-item relative mb-20 md:mb-40 pb-4"
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-100px" }}
