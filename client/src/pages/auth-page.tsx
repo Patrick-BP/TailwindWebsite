@@ -16,7 +16,7 @@ const loginSchema = z.object({
 });
 
 export default function AuthPage() {
-  const { login, loginMutation } = useAuth();
+  const { loginMutation } = useAuth();
 
   const loginForm = useForm({
     resolver: zodResolver(loginSchema),
