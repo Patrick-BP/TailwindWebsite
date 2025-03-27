@@ -9,6 +9,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Loader2, Code } from "lucide-react";
 import { Redirect } from "wouter";
 import { z } from "zod";
+import { useAuth } from "@/hooks/use-auth";
 
 const loginSchema = z.object({
   username: z.string().min(1, "Username is required"),
@@ -27,7 +28,7 @@ export default function AuthPage() {
   });
 
   const onLogin = async (data: z.infer<typeof loginSchema>) => {
-    await login(data);
+    await loginMutation.mutate(data);
   };
 
   const user = useContext(AuthContext)?.user || null;

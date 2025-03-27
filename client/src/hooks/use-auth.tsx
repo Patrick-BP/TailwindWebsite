@@ -109,8 +109,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   );
 }
 
-import { useContext } from "react";
-import { AuthContext } from "@/contexts/auth-context";
+// import { useContext } from "react";
+// import { AuthContext } from "@/contexts/auth-context";
 
 export function useAuth() {
   const context = useContext(AuthContext);
