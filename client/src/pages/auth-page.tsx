@@ -1,7 +1,6 @@
-import { useState, useContext } from "react";
+import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { AuthContext } from "@/hooks/use-auth";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -9,7 +8,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Loader2, Code } from "lucide-react";
 import { Redirect } from "wouter";
 import { z } from "zod";
-import { useAuth } from "@/hooks/use-auth";
+import { AuthContext, useAuth } from "@/hooks/use-auth";
 
 const loginSchema = z.object({
   username: z.string().min(1, "Username is required"),
